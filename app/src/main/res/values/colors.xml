@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="MoradoPrincipal">#8D5EA8</color>
+    <color name="MoradoSecundario">#AF8EC2</color>
+    <color name="AmarilloBoton">#FFD700</color>
+    <color name="RojoAlerta">#F11216</color>
 </resources>
