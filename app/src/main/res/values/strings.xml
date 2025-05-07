@@ -6,4 +6,12 @@
     <string name="registro">Registro</string>
     <string name="nombre">Nombre</string>
     <string name="contrasena">Contrasena</string>
+    <string name="repite_contrasena">Repite Contrasena</string>
+    <string name="registrar">Registrar</string>
+    <string name="atras">atras</string>
+    <string name="Atras">Atras</string>
+    <string name="mis_discos">Mis Discos</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="agregar_disco">Agregar Disco</string>
+    <string name="detalles">Detalles</string>
 </resources>

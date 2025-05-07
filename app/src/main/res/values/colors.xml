@@ -6,4 +6,5 @@
     <color name="MoradoSecundario">#AF8EC2</color>
     <color name="AmarilloBoton">#FFD700</color>
     <color name="RojoAlerta">#F11216</color>
+    <color name="GrisRecyclerView">#D9D9D9</color>
 </resources>

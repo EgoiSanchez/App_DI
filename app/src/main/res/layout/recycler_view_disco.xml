@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rviClPrincipal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@color/MoradoSecundario"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/EditTextTituloDisco"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextNombreBanda"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextNombreBanda"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextAno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextTituloDisco" />
+
+        <EditText
+            android:id="@+id/EditTextAno"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextPais"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextPais" />
+
+        <EditText
+            android:id="@+id/EditTextPais"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextAno" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/EditTextNota"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="3dp"
+        android:background="@color/GrisRecyclerView" />
+
+    <Button
+        android:id="@+id/botonAtrasMenuPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/detalles"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>

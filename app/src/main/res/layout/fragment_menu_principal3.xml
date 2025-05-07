@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MoradoPrincipal"
+    tools:context=".MenuPrincipalFragment3">
+
+    <Button
+        android:id="@+id/botonAtrasMenuPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/Atras"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <Button
+            android:id="@+id/botonMisDiscos"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/AmarilloBoton"
+            android:text="@string/mis_discos"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/botonEstadisticas"
+            app:layout_constraintEnd_toEndOf="@id/constraintBotones"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/constraintBotones"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botonEstadisticas"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/AmarilloBoton"
+            android:text="@string/estadisticas"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/botonAgregarDisco"
+            app:layout_constraintEnd_toEndOf="@id/constraintBotones"
+            app:layout_constraintStart_toStartOf="@+id/constraintBotones"
+            app:layout_constraintTop_toBottomOf="@+id/botonMisDiscos" />
+
+        <Button
+            android:id="@+id/botonAgregarDisco"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AmarilloBoton"
+            android:text="@string/agregar_disco"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/botonEstadisticas"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

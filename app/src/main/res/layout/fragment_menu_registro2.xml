@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MoradoPrincipal"
+    tools:context=".MenuRegistroFragment2">
+
+
+    <Button
+        android:id="@+id/botonAtrasMenuRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/Atras"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+     />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintBotones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <EditText
+            android:id="@+id/ETNombre"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text_menu"
+            android:hint="@string/nombre"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/ETContraseña"
+            app:layout_constraintEnd_toEndOf="@id/constraintEditText"
+            app:layout_constraintStart_toStartOf="@id/constraintEditText"
+            app:layout_constraintTop_toTopOf="@+id/constraintEditText" />
+
+        <EditText
+            android:id="@+id/ETContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text_menu"
+            android:hint="@string/contrasena"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintEditText"
+            app:layout_constraintEnd_toEndOf="@id/constraintEditText"
+            app:layout_constraintStart_toStartOf="@id/constraintEditText"
+            app:layout_constraintTop_toBottomOf="@+id/ETNombre" />
+
+        <EditText
+            android:id="@+id/ETContraseñaRepetida"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text_menu"
+            android:hint="@string/repite_contrasena"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/constraintBotones"
+            app:layout_constraintEnd_toEndOf="@id/constraintEditText"
+            app:layout_constraintStart_toStartOf="@id/constraintEditText"
+            app:layout_constraintTop_toBottomOf="@+id/ETContraseña"
+            tools:ignore="NotSibling" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintEditText">
+
+
+        <Button
+            android:id="@+id/botonRegistro"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/AmarilloBoton"
+            android:text="@string/registrar"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintBotones"
+            app:layout_constraintEnd_toEndOf="@id/constraintBotones"
+            app:layout_constraintStart_toStartOf="@+id/constraintBotones"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
