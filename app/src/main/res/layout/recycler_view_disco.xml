@@ -44,13 +44,13 @@
             android:layout_width="150dp"
             android:layout_height="25dp"
             android:background="@drawable/edit_text_recyclerview_datos"
-            app:layout_constraintBottom_toTopOf="@+id/EditTextPais"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextEstilo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextPais" />
+            app:layout_constraintTop_toBottomOf="@+id/EditTextEstilo" />
 
         <EditText
-            android:id="@+id/EditTextPais"
+            android:id="@+id/EditTextEstilo"
             android:layout_width="150dp"
             android:layout_height="25dp"
             android:background="@drawable/edit_text_recyclerview_datos"

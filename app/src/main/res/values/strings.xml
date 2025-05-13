@@ -14,4 +14,24 @@
     <string name="estadisticas">Estadisticas</string>
     <string name="agregar_disco">Agregar Disco</string>
     <string name="detalles">Detalles</string>
+    <string name="listas">Listas</string>
+    <string name="graficos">Graficos</string>
+    <string name="estanterias">Estanterias</string>
+    <string name="titulo">Titulo</string>
+    <string name="banda">Banda</string>
+    <string name="a_o">Año</string>
+    <string name="estilo">Estilo</string>
+    <string name="pais">Pais</string>
+    <string name="estado">Estado</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="tags">Tags</string>
+    <string name="nota">Nota</string>
+    <string name="portada">Portada</string>
+    <string name="insertar_disco">Insertar disco</string>
+    <string name="modificar_disco">Modificar Disco</string>
+    <string name="borrar_disco">Borrar disco</string>
+    <string-array name="orden_notas">
+        <item>Ordenar de mayor a menor</item>
+        <item>Ordenar de menor a mayor</item>
+    </string-array>
 </resources>

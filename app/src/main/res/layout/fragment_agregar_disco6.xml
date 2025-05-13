@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MoradoPrincipal"
+    tools:context=".AgregarDiscoFragment6">
+
+    <Button
+        android:id="@+id/botonAtrasAgregarDisco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/Atras"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/MoradoSecundario"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/EditTextTituloDisco"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/titulo"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextNombreBanda"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextNombreBanda"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/banda"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextAno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextAno"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/a_o"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/EditTextEstilo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextEstilo"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/estilo"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextPais"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/pais"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextEstado"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/estado"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextDescripcion"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/descripcion"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextTags"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/tags"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextNota"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/nota"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/EditTextPortada"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/edit_text_recyclerview_datos"
+            android:gravity="center"
+            android:hint="@string/portada"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextAno" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/botonInsertarDisco"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/insertar_disco"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPrincipal" />
+    <Button
+        android:id="@+id/botonModificarDisco"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/modificar_disco"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonInsertarDisco" />
+    <Button
+        android:id="@+id/botonBorrarDisco"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/RojoAlerta"
+        android:text="@string/borrar_disco"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonModificarDisco" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

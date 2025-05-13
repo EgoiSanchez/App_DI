@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout2"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/MoradoPrincipal"
-    tools:context=".MenuPrincipalFragment3">
+    tools:context=".MenuEstadisticasFragment5">
 
     <Button
-        android:id="@+id/botonAtrasMenuPrincipal3"
+        android:id="@+id/botonAtrasMenuEstadisticas5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/AmarilloBoton"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/AmarilloBoton"
-            android:text="@string/mis_discos"
+            android:text="@string/listas"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/botonGraficos"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/AmarilloBoton"
-            android:text="@string/estadisticas"
+            android:text="@string/graficos"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/botonEstanterias"
@@ -64,7 +64,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/AmarilloBoton"
-            android:text="@string/agregar_disco"
+            android:text="@string/estanterias"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintTop_toBottomOf="@id/botonGraficos"
@@ -73,6 +73,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
