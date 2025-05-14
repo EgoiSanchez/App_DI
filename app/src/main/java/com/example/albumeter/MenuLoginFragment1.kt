@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentMenuLogin1Binding
 
 
@@ -37,7 +38,9 @@ class MenuLoginFragment1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
+        binding.botonLogIn.setOnClickListener{
+            findNavController().navigate(R.id.action_menuLoginFragment1_to_menuPrincipalFragment3)
+        }
 
 
     }

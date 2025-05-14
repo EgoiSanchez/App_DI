@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuLoginFragment1">
+
+    <!-- Destinos principales -->
+    <fragment
+        android:id="@+id/menuLoginFragment1"
+        android:name="com.example.albumeter.MenuLoginFragment1"
+        android:label="fragment_menu_login1"
+        tools:layout="@layout/fragment_menu_login1">
+
+        <action
+            android:id="@+id/action_menuLoginFragment1_to_menuRegistroFragment2"
+            app:destination="@id/menuRegistroFragment2" />
+
+        <action
+            android:id="@+id/action_menuLoginFragment1_to_menuPrincipalFragment3"
+            app:destination="@id/menuPrincipalFragment3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuRegistroFragment2"
+        android:name="com.example.albumeter.MenuRegistroFragment2"
+        android:label="fragment_menu_registro2"
+        tools:layout="@layout/fragment_menu_registro2">
+
+        <action
+            android:id="@+id/action_menuRegistroFragment2_to_menuLoginFragment1"
+            app:destination="@id/menuLoginFragment1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuPrincipalFragment3"
+        android:name="com.example.albumeter.MenuPrincipalFragment3"
+        android:label="fragment_menu_principal3"
+        tools:layout="@layout/fragment_menu_principal3">
+
+        <action
+            android:id="@+id/action_menuPrincipalFragment3_to_menuLoginFragment1"
+            app:destination="@id/menuLoginFragment1" />
+
+        <action
+            android:id="@+id/action_menuPrincipalFragment3_to_misDiscosContenedor4"
+            app:destination="@id/misDiscosContenedor4" />
+
+        <action
+            android:id="@+id/action_menuPrincipalFragment3_to_menuEstadisticasFragment5"
+            app:destination="@id/menuEstadisticasFragment5" />
+
+        <action
+            android:id="@+id/action_menuPrincipalFragment3_to_agregarDiscoFragment6"
+            app:destination="@id/agregarDiscoFragment6" />
+    </fragment>
+
+    <!-- Sección de discos -->
+    <fragment
+        android:id="@+id/misDiscosContenedor4"
+        android:name="com.example.albumeter.MisDiscosContenedor4"
+        android:label="fragment_mis_discos_contenedor4"
+        tools:layout="@layout/fragment_mis_discos_contenedor4">
+
+        <action
+            android:id="@+id/action_misDiscosContenedor4_to_menuPrincipalFragment3"
+            app:destination="@id/menuPrincipalFragment3" />
+
+        <action
+            android:id="@+id/action_misDiscosContenedor4_to_agregarDiscoFragment6"
+            app:destination="@id/agregarDiscoFragment6" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/agregarDiscoFragment6"
+        android:name="com.example.albumeter.AgregarDiscoFragment6"
+        android:label="fragment_agregar_disco6"
+        tools:layout="@layout/fragment_agregar_disco6">
+
+        <action
+            android:id="@+id/action_agregarDiscoFragment6_to_misDiscosContenedor4"
+            app:destination="@id/misDiscosContenedor4" />
+
+        <action
+            android:id="@+id/action_agregarDiscoFragment6_to_menuPrincipalFragment3"
+            app:destination="@id/menuPrincipalFragment3" />
+    </fragment>
+
+    <!-- Estadísticas -->
+    <fragment
+        android:id="@+id/menuEstadisticasFragment5"
+        android:name="com.example.albumeter.MenuEstadisticasFragment5"
+        android:label="fragment_menu_estadisticas5"
+        tools:layout="@layout/fragment_menu_estadisticas5">
+
+        <action
+            android:id="@+id/action_menuEstadisticasFragment5_to_estadisticasFragment8"
+            app:destination="@id/estadisticasFragment8" />
+
+        <action
+            android:id="@+id/action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9"
+            app:destination="@id/estadisticasGraficosFragment9" />
+    </fragment>
+
+    <!-- Sub-secciones de estadísticas -->
+    <fragment
+        android:id="@+id/estadisticasFragment8"
+        android:name="com.example.albumeter.EstadisticasFragment8"
+        android:label="fragment_estadisticas8"
+        tools:layout="@layout/fragment_estadisticas8" />
+
+    <fragment
+        android:id="@+id/estadisticasGraficosFragment9"
+        android:name="com.example.albumeter.EstadisticasGraficosFragment9"
+        android:label="fragment_estadisticas_graficos9"
+        tools:layout="@layout/fragment_estadisticas_graficos9" />
+
+</navigation>
