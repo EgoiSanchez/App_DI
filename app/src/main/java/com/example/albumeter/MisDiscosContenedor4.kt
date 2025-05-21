@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.albumeter.databinding.FragmentMisDiscosContenedor4Binding
-
+import com.example.albumeter.recyclerView.Adaptador
 
 
 /**
@@ -38,11 +40,15 @@ class MisDiscosContenedor4 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
+        //cargar base de datos
+        (activity as MainActivity).miViewModel.mostrarAlbum()
+        (activity as MainActivity).miViewModel.listaAlbumes.observe(activity as MainActivity) {
+            binding.newMisDiscosContenedor4.layoutManager = LinearLayoutManager(context)
+            binding.newMisDiscosContenedor4.adapter = Adaptador(it)
+        }
 
 
     }
-
 
 
     override fun onDestroyView() {

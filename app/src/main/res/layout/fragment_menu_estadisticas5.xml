@@ -39,14 +39,14 @@
             android:text="@string/listas"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/botonGraficos"
+            app:layout_constraintBottom_toTopOf="@id/botonEstadisticas"
             app:layout_constraintEnd_toEndOf="@id/constraintBotones"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/constraintBotones"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/botonGraficos"
+            android:id="@+id/botonEstadisticas"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -54,20 +54,20 @@
             android:text="@string/graficos"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/botonEstanterias"
+            app:layout_constraintBottom_toTopOf="@id/botonAgregarDisco"
             app:layout_constraintEnd_toEndOf="@id/constraintBotones"
             app:layout_constraintStart_toStartOf="@+id/constraintBotones"
             app:layout_constraintTop_toBottomOf="@+id/botonListas" />
 
         <Button
-            android:id="@+id/botonEstanterias"
+            android:id="@+id/botonAgregarDisco"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/AmarilloBoton"
             android:text="@string/estanterias"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintTop_toBottomOf="@id/botonGraficos"
+            app:layout_constraintTop_toBottomOf="@id/botonEstadisticas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

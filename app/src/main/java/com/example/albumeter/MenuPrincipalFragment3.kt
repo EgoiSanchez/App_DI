@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentMenuPrincipal3Binding
 import com.example.albumeter.databinding.FragmentMenuRegistro2Binding
 
@@ -37,6 +38,15 @@ class MenuPrincipalFragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.botonListas.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment3_to_misDiscosContenedor4
+            )
+        }
+
+        binding.botonAgregarDisco.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment3_to_agregarDiscoFragment6)
+        }
 
 
 

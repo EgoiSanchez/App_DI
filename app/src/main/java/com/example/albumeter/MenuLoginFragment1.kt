@@ -56,30 +56,30 @@ class MenuLoginFragment1 : Fragment() {
         } else {
             Log.e("MenuLoginFragment1", "MainActivity es null")
         }
-        val editor:Editor=loginUsuario.edit()
+        val editor: Editor = loginUsuario.edit()
 
         var usuario = (activity as MainActivity).miViewModel.usuario
-        usuario = Usuario("","","")
+        usuario = Usuario("", "", "")
 
-        binding.botonLogIn.setOnClickListener{
+        binding.botonLogIn.setOnClickListener {
             if (comprobarPassword()) {
+                findNavController().navigate(R.id.action_menuLoginFragment1_to_menuPrincipalFragment3)
                 Toast.makeText(
                     requireContext(),
                     "Login correcto",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Login Incorrecto",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
 
 
-
-        binding.botonLogIn.setOnClickListener{
-            findNavController().navigate(R.id.action_menuLoginFragment1_to_menuPrincipalFragment3)
-        }
-
-
     }
-
 
 
     override fun onDestroyView() {
@@ -88,7 +88,7 @@ class MenuLoginFragment1 : Fragment() {
     }
 
 
-    fun comprobarPassword(): Boolean {
+    private fun comprobarPassword(): Boolean {
 
         val nombre = binding.ETNombre.text.toString().trim()
         val password = binding.ETContraseA.text.toString().trim()
@@ -101,5 +101,4 @@ class MenuLoginFragment1 : Fragment() {
     }
 
 
-
- }
+}

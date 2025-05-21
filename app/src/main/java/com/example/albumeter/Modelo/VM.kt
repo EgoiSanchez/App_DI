@@ -18,6 +18,9 @@ class VM(val miRepositorio: Repositorio): ViewModel() {
     fun mostrarAlbum() = viewModelScope.launch {
         listaAlbumes = miRepositorio.mostrarAlbumes().asLiveData()
     }
+    fun agregarDisco(miDisco: Album) {
+        viewModelScope.launch { miRepositorio.insertar(miDisco) }
+    }
 }
 
 // para que solo se instancie una vez

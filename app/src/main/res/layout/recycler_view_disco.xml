@@ -27,7 +27,10 @@
             app:layout_constraintBottom_toTopOf="@+id/EditTextNombreBanda"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            />
 
         <EditText
             android:id="@+id/EditTextNombreBanda"
@@ -37,7 +40,9 @@
             app:layout_constraintBottom_toTopOf="@+id/EditTextAno"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextTituloDisco" />
+            app:layout_constraintTop_toBottomOf="@+id/EditTextTituloDisco"
+            android:gravity="center_vertical"
+            android:textSize="16sp"/>
 
         <EditText
             android:id="@+id/EditTextAno"
@@ -47,7 +52,9 @@
             app:layout_constraintBottom_toTopOf="@+id/EditTextEstilo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextEstilo" />
+            app:layout_constraintTop_toBottomOf="@+id/EditTextEstilo"
+            android:gravity="center_vertical"
+            android:textSize="16sp"/>
 
         <EditText
             android:id="@+id/EditTextEstilo"
@@ -57,7 +64,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EditTextAno" />
+            app:layout_constraintTop_toBottomOf="@+id/EditTextAno"
+            android:gravity="center_vertical"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -66,7 +75,9 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="3dp"
-        android:background="@color/GrisRecyclerView" />
+        android:background="@color/GrisRecyclerView"
+        android:gravity="center"
+        android:textSize="24sp"/>
 
     <Button
         android:id="@+id/botonAtrasMenuPrincipal"

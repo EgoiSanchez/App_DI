@@ -52,9 +52,19 @@ abstract class BBDD : RoomDatabase() {
                         descripcion = "Primer album añadido a la BBDD",
                         tags = listOf("Sludge", "Metal", "Rock")
                     ),
-
-
-                    )
+                    Album(
+                        banda = "Blood Incantantion",
+                        titulo = "Absolute elsewhere",
+                        estilo = "Death metal progresivo",
+                        ano = 2024,
+                        fecha = Date.valueOf("2024-11-12"),
+                        pais = "Estados Unidos",
+                        nota = 9.6,
+                        estado = Estado.CALIFICADO,
+                        portada = null,
+                        descripcion = "Segundo album añadido a la BBDD",
+                        tags = listOf("Death Metal", "Progresivo", "Technical Death Metal", "Space Ambiente")
+                    ))
                 // Inserta los albumes iniciales en la base de datos
                 val viewModelScope = CoroutineScope(Dispatchers.IO)
                 viewModelScope.launch {

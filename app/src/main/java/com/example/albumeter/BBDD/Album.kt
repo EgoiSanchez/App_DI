@@ -1,5 +1,6 @@
 package com.example.albumeter.BBDD
 
+
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -14,15 +15,15 @@ data class Album(
     @NonNull var titulo: String,
     var estilo: String? = null,
     var ano: Int? = null,
-    var fecha : Date? = null,
-    var pais : String? =null,
-    var nota : Double? = null,
-    var estado : Estado = Estado.ALBUM_ANADIDO,
-    var portada : String? = null,
-    var descripcion : String? = null,
-    var tags : List<String> = emptyList()
+    var fecha: Date? = null,
+    var pais: String? = null,
+    var nota: Double? = null,
+    var estado: Estado = Estado.ALBUM_ANADIDO,
+    var portada: String? = null,
+    var descripcion: String? = null,
+    var tags: List<String> = emptyList()
 
-) {}
+)
 
 enum class Estado {
 
