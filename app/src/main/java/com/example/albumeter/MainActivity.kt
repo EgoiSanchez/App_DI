@@ -3,11 +3,13 @@ package com.example.albumeter
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -24,15 +26,26 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var loginusuario: SharedPreferences
 
-    val miDataBase by lazy { BBDD.getDatabase(this) }
-    val miRepositorio by lazy { Repositorio(miDataBase.miDAO()) }
-    val miViewModel:VM by viewModels {AlbumViewModelFactory(miRepositorio)}
+    lateinit var miDataBase: BBDD
+
+    private lateinit var miRepositorio: Repositorio
+    lateinit var miViewModel: VM
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         loginusuario = this.getSharedPreferences("datosUsuario", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
+
+        miDataBase = BBDD.getDatabase(this)
+        Log.d("BBDD", "Base de datos abierta: ${miDataBase.isOpen}")
+
+
+        miRepositorio = Repositorio(miDataBase.miDAO())
+        miViewModel = ViewModelProvider(this, AlbumViewModelFactory(miRepositorio))[VM::class.java]
+
+        val db = BBDD.getDatabase(this)
+        Log.d("Depuración", "Estado de la BD en MainActivity: ${db.isOpen}")
 
 
         enableEdgeToEdge()

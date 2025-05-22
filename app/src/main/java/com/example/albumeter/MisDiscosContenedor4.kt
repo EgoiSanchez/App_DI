@@ -7,8 +7,11 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.albumeter.databinding.FragmentMisDiscosContenedor4Binding
+import com.example.albumeter.databinding.RecyclerViewDiscoBinding
 import com.example.albumeter.recyclerView.Adaptador
 
 
@@ -41,10 +44,15 @@ class MisDiscosContenedor4 : Fragment() {
 
 
         //cargar base de datos
-        (activity as MainActivity).miViewModel.mostrarAlbum()
+        //(activity as MainActivity).miViewModel.mostrarAlbum()
+        //live data oberserver de la lista de albumes
         (activity as MainActivity).miViewModel.listaAlbumes.observe(activity as MainActivity) {
             binding.newMisDiscosContenedor4.layoutManager = LinearLayoutManager(context)
             binding.newMisDiscosContenedor4.adapter = Adaptador(it)
+        }
+
+        binding.botonAtrasMisdiscosContenedor4.setOnClickListener{
+            findNavController().popBackStack()
         }
 
 

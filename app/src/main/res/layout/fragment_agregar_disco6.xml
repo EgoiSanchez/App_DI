@@ -26,10 +26,10 @@
         android:background="@color/MoradoSecundario"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/botonInsertarDisco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/botonAtrasAgregarDisco">
 
         <EditText
             android:id="@+id/EditTextTituloDisco"
@@ -39,7 +39,7 @@
             android:gravity="center"
             android:hint="@string/titulo"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/EditTextNombreBanda"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
             android:gravity="center"
             android:hint="@string/banda"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/EditTextAno"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -66,7 +66,7 @@
             android:gravity="center"
             android:hint="@string/a_o"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/EditTextEstilo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -79,7 +79,7 @@
             android:gravity="center"
             android:hint="@string/estilo"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -92,7 +92,7 @@
             android:gravity="center"
             android:hint="@string/pais"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -105,7 +105,7 @@
             android:gravity="center"
             android:hint="@string/estado"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -118,7 +118,7 @@
             android:gravity="center"
             android:hint="@string/descripcion"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -131,7 +131,7 @@
             android:gravity="center"
             android:hint="@string/tags"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -144,7 +144,7 @@
             android:gravity="center"
             android:hint="@string/nota"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -157,7 +157,7 @@
             android:gravity="center"
             android:hint="@string/portada"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -201,7 +201,8 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonModificarDisco" />
+        app:layout_constraintTop_toBottomOf="@+id/botonModificarDisco"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

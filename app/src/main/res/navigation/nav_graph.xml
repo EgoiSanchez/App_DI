@@ -75,7 +75,12 @@
         android:id="@+id/agregarDiscoFragment6"
         android:name="com.example.albumeter.AgregarDiscoFragment6"
         android:label="fragment_agregar_disco6"
+
         tools:layout="@layout/fragment_agregar_disco6">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
 
         <action
             android:id="@+id/action_agregarDiscoFragment6_to_misDiscosContenedor4"

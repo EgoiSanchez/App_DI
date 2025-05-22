@@ -1,5 +1,6 @@
 package com.example.albumeter.Modelo
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -12,15 +13,32 @@ import kotlinx.coroutines.launch
 class VM(val miRepositorio: Repositorio): ViewModel() {
 
     var usuario: Usuario?=null
-    lateinit var listaAlbumes: LiveData<List<Album>>
+
+    //usando copilot, convierte el flow en livedata para poder iniciarlo desde ya
+    val listaAlbumes: LiveData<List<Album>> = miRepositorio.mostrarAlbumes().asLiveData()
+    lateinit var album: LiveData<Album>
 
     //meto todas las funciones de las base de datos qur quiera usar
-    fun mostrarAlbum() = viewModelScope.launch {
-        listaAlbumes = miRepositorio.mostrarAlbumes().asLiveData()
+   // fun mostrarAlbum() = viewModelScope.launch {
+       // miRepositorio.mostrarAlbumes().collect { lista ->
+         //   listaAlbumes = lista.asLiveData()
+       // }
+    //}
+
+    fun buscarAlbumPorId(id: Int): LiveData<Album> {
+        return miRepositorio.buscarPorId(id).asLiveData()
     }
+
+
     fun agregarDisco(miDisco: Album) {
-        viewModelScope.launch { miRepositorio.insertar(miDisco) }
+        viewModelScope.launch {
+            Log.d("Depuración", "Intentando insertar disco: ${miDisco.titulo}")
+            miRepositorio.insertar(miDisco)
+            Log.d("Depuración", "Disco insertado correctamente") }
+
     }
+
+
 }
 
 // para que solo se instancie una vez

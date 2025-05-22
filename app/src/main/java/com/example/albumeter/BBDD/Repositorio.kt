@@ -1,6 +1,8 @@
 package com.example.albumeter.BBDD
 
+import android.util.Log
 import androidx.annotation.WorkerThread
+import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 class Repositorio(val miDAO: AlbumDAO) {
@@ -8,8 +10,23 @@ class Repositorio(val miDAO: AlbumDAO) {
         return miDAO.mostrarAlbumes()
     }
 
-    @WorkerThread
+    //@WorkerThread lo elimino por que lo estamos lanzando en otro hilo separado dentro del viewModelScoper.launch
+
     suspend fun insertar(miDisco: Album){
-        miDAO.insertarAlbum(miDisco)
+
+        try {
+            miDAO.insertarAlbum(miDisco)
+            Log.d("Depuración", "Inserción en la base de datos exitosa.")
+        } catch (e: Exception) {
+            Log.e("Error BD", "Error insertando disco: ${e.message}")
+        }
     }
+
+    //@WorkerThread
+    fun buscarPorId(id:Int): Flow<Album>{
+        return miDAO.buscarPorId(id)
+    }
+
+
+
 }

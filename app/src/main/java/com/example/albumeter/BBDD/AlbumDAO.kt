@@ -13,4 +13,7 @@ interface AlbumDAO {
 
     @Insert
     suspend fun insertarAlbum(miAlbum: Album)
+
+    @Query("SELECT * FROM Albumes where id like :id")
+    fun buscarPorId(id:Int): Flow<Album>
 }

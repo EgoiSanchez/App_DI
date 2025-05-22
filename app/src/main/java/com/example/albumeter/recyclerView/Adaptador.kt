@@ -1,11 +1,13 @@
 package com.example.albumeter.recyclerView
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.albumeter.BBDD.Album
+import com.example.albumeter.R
 import com.example.albumeter.databinding.RecyclerViewDiscoBinding
 import com.example.albumeter.recyclerView.Adaptador.*
 
@@ -17,12 +19,15 @@ class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
         var posicion = 0
 
         //cuando implemente el boton detalles del recycler view
-       // init {
-        //    binding.d("posicion", posicion.toString())
-          //  val mibundle = bundleOf("posicion" to posicion)
-          //  binding.rviClPrincipal.findNavController()
-          //      .navigate(R.id.action_misDiscosContenedor4_to_agregarDiscoFragment6)
-        //}
+        init {
+            binding.botonDetallesRecyclerView.setOnClickListener {
+                val albumId = discos[adapterPosition].id
+                val mibundle = bundleOf("id" to albumId)
+                binding.rviClPrincipal.findNavController()
+                    .navigate(R.id.action_misDiscosContenedor4_to_agregarDiscoFragment6, mibundle)
+            }
+
+        }
 
     }
 
@@ -43,7 +48,7 @@ class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
         holder.binding.EditTextEstilo.setText(discos[position].estilo)
         holder.binding.EditTextNota.setText(discos[position].nota.toString() ?: "¿?")
 
-        holder.posicion = position
+        //holder.posicion = discos[position].id
     }
 
 }

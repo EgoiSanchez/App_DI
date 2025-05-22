@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.setPadding
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentMenuPrincipal3Binding
 import com.example.albumeter.databinding.FragmentMenuRegistro2Binding
@@ -46,6 +47,9 @@ class MenuPrincipalFragment3 : Fragment() {
 
         binding.botonAgregarDisco.setOnClickListener{
             findNavController().navigate(R.id.action_menuPrincipalFragment3_to_agregarDiscoFragment6)
+        }
+        binding.botonAtrasMenuPrincipal3.setOnClickListener{
+            findNavController().popBackStack()
         }
 
 
