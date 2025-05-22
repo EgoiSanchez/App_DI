@@ -10,11 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.BBDD.Album
 import com.example.albumeter.BBDD.Estado
 import com.example.albumeter.BBDD.Repositorio
 import com.example.albumeter.databinding.FragmentAgregarDisco6Binding
+import kotlin.math.log
 
 
 /**
@@ -51,25 +53,30 @@ class AgregarDiscoFragment6 : Fragment() {
             ArrayAdapter(requireContext(), R.layout.simple_dropdown_item_1line, estados)
         binding.AutocompleteEstado.setAdapter(adapter)
 
-        // Mostrar el menú desplegable al hacer click en el campo
-        binding.AutocompleteEstado.setOnClickListener {
-            binding.AutocompleteEstado.showDropDown()
-
-        }
-
-        //para que al traer el disco desde detalles y  rellene los campos
-        var posicion = 0
-        // si no traigo argumentos(id) le asigno el -1
         val idAlbum = arguments?.getInt("id") ?: -1
+        //tengo el album disponible para modificarlo
+        (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
+            val album = albumes?.find { it.id == idAlbum }
 
-        if (idAlbum <= 0) {
-            Log.d("Depuración", "Navegaste desde el menú principal. Formulario vacío.")
-            binding.botonBorrarDisco.visibility = View.INVISIBLE
-            binding.botonModificarDisco.visibility = View.INVISIBLE
 
-        } else {
-            (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
-                val album = albumes?.find { it.id == idAlbum } // Busca por ID correcto
+            // Mostrar el menú desplegable al hacer click en el campo
+            binding.AutocompleteEstado.setOnClickListener {
+                binding.AutocompleteEstado.showDropDown()
+
+            }
+
+            //para que al traer el disco desde detalles y  rellene los campos
+            var posicion = 0
+            // si no traigo argumentos(id) le asigno el -1
+
+
+            if (idAlbum <= 0) {
+                Log.d("Depuración", "Navegaste desde el menú principal. Formulario vacío.")
+                binding.botonBorrarDisco.visibility = View.INVISIBLE
+                binding.botonModificarDisco.visibility = View.INVISIBLE
+
+            } else {
+                // Busca por ID correcto
                 if (album != null) {
                     // Rellena los campos con album.titulo, album.banda, etc.
                     binding.EditTextTituloDisco.setText(album.titulo)
@@ -99,7 +106,7 @@ class AgregarDiscoFragment6 : Fragment() {
             val estadoSeleccionado = try {
                 Estado.valueOf(binding.AutocompleteEstado.text.toString())
             } catch (e: IllegalArgumentException) {
-                Estado.ALBUM_ANADIDO // Valor por defecto si la entrada no es válida
+                Estado.ALBUM_ANADIDO
             }
 
             val nuevoDisco = Album(
@@ -117,13 +124,72 @@ class AgregarDiscoFragment6 : Fragment() {
 
             (activity as MainActivity).miViewModel.agregarDisco(nuevoDisco)
             Toast.makeText(context, "Disco añadido", Toast.LENGTH_SHORT).show()
-            findNavController().popBackStack() // Regresar a la pantalla anterior
-        }
-
-        binding.botonAtrasAgregarDisco.setOnClickListener{
             findNavController().popBackStack()
         }
+
+        binding.botonAtrasAgregarDisco.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        binding.botonBorrarDisco.setOnClickListener {
+            val id = idAlbum
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Confirmacion Borrado Disco")
+                .setMessage("¿Estas seguro que quieres borrar el disco?")
+                .setPositiveButton("Yeahh") { dialog, which ->
+                    (activity as MainActivity).miViewModel.borraDisco(id)
+                    Toast.makeText(context, "Disco borrado", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Nooo!!") { dialog, which ->
+                    // Se pulsa "No": simplemente dismiss el diálogo
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+        }
+
+        binding.botonModificarDisco.setOnClickListener {
+
+            val albumActualizado = crearAlbumDesdeCampos(idAlbum)
+
+            if (albumActualizado != null) {
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Confirmacion Modificar Disco")
+                    .setMessage("¿Estas seguro que quieres modificar el disco?")
+                    .setPositiveButton("Yeahh!!") { dialog, which ->
+                        (activity as MainActivity).miViewModel.modificarDisco(albumActualizado)
+                        Toast.makeText(context, "Disco modificado", Toast.LENGTH_SHORT).show()
+                    }
+                    .setNegativeButton("Noooo!!") { dialog, which ->
+                        // Se pulsa "No": simplemente dismiss el diálogo
+                        dialog.dismiss()
+                    }
+                    .create()
+                    .show()
+            }
+
+
+        }
     }
+
+    //funcion por que si cojo el LiveData esta viejo y da NULLPOINTEREXCEPTION,
+    fun crearAlbumDesdeCampos(id: Int): Album {
+        return Album(
+            id = id,
+            titulo = binding.EditTextTituloDisco.text.toString(),
+            banda = binding.EditTextNombreBanda.text.toString(),
+            ano = binding.EditTextAno.text.toString().toIntOrNull() ?: 0,
+            estilo = binding.EditTextEstilo.text.toString(),
+            pais = binding.EditTextPais.text.toString(),
+            estado = Estado.valueOf(binding.AutocompleteEstado.text.toString()),
+            descripcion = binding.EditTextDescripcion.text.toString(),
+            tags = binding.EditTextTags.text.toString().split(", "),
+            nota = binding.EditTextNota.text.toString().toDoubleOrNull() ?: 0.0,
+            portada = binding.EditTextPortada.text.toString()
+        )
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

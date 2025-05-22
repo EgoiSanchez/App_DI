@@ -43,15 +43,15 @@ class MisDiscosContenedor4 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //cargar base de datos
-        //(activity as MainActivity).miViewModel.mostrarAlbum()
         //live data oberserver de la lista de albumes
-        (activity as MainActivity).miViewModel.listaAlbumes.observe(activity as MainActivity) {
-            binding.newMisDiscosContenedor4.layoutManager = LinearLayoutManager(context)
-            binding.newMisDiscosContenedor4.adapter = Adaptador(it)
+        (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
+            binding.newMisDiscosContenedor4.layoutManager = LinearLayoutManager(requireContext())
+            binding.newMisDiscosContenedor4.adapter = Adaptador(albumes)
         }
 
-        binding.botonAtrasMisdiscosContenedor4.setOnClickListener{
+
+
+        binding.botonAtrasMisdiscosContenedor4.setOnClickListener {
             findNavController().popBackStack()
         }
 

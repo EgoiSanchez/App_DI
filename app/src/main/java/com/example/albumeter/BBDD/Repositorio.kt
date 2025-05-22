@@ -12,7 +12,7 @@ class Repositorio(val miDAO: AlbumDAO) {
 
     //@WorkerThread lo elimino por que lo estamos lanzando en otro hilo separado dentro del viewModelScoper.launch
 
-    suspend fun insertar(miDisco: Album){
+    suspend fun insertar(miDisco: Album) {
 
         try {
             miDAO.insertarAlbum(miDisco)
@@ -22,11 +22,18 @@ class Repositorio(val miDAO: AlbumDAO) {
         }
     }
 
-    //@WorkerThread
-    fun buscarPorId(id:Int): Flow<Album>{
-        return miDAO.buscarPorId(id)
+    suspend fun borrarAlbum(id: Int) {
+        miDAO.borrar(id)
     }
 
+    suspend fun modificarAlbum(miDisco: Album) {
+        miDAO.modificar(miDisco)
+    }
+
+    //@WorkerThread
+    fun buscarPorId(id: Int): Flow<Album> {
+        return miDAO.buscarPorId(id)
+    }
 
 
 }
