@@ -26,23 +26,28 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayOutSpinner"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayourSpinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/LinearBotonAtras">
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayOutGraficos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/LinearBotonAtras">
 
         <Spinner
-            android:id="@+id/spinnerOrdenNotas"
+            android:id="@+id/spinnerEstilos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:background="@color/GrisRecyclerView"
-            android:backgroundTint="@color/MoradoSecundario"
-            android:entries="@array/orden_notas"
-            android:padding="8dp" />
+            tools:ignore="MissingConstraints" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayOutGraficos"
@@ -51,9 +56,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayOutSpinner">
+        app:layout_constraintTop_toBottomOf="@id/LinearBotonAtras">
+
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayOutGraficos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerEstilos"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/leyendaColores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayOutGraficos"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.albumeter
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import android.os.Bundle
@@ -48,7 +49,6 @@ class MenuLoginFragment1 : Fragment() {
         //titulo del fragmento
         (activity as AppCompatActivity).supportActionBar?.title = "Albumeter"
         //traerme login del usuario
-
         val mainActivity = activity as? MainActivity
         if (mainActivity != null) {
             loginUsuario = mainActivity.loginusuario
@@ -56,7 +56,6 @@ class MenuLoginFragment1 : Fragment() {
         } else {
             Log.e("MenuLoginFragment1", "MainActivity es null")
         }
-        val editor: Editor = loginUsuario.edit()
 
         var usuario = (activity as MainActivity).miViewModel.usuario
         usuario = Usuario("", "", "")
@@ -69,6 +68,8 @@ class MenuLoginFragment1 : Fragment() {
                     "Login correcto",
                     Toast.LENGTH_SHORT
                 ).show()
+
+
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -76,6 +77,10 @@ class MenuLoginFragment1 : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+
+        binding.botonRegistro.setOnClickListener {
+            findNavController().navigate(R.id.action_menuLoginFragment1_to_menuRegistroFragment2)
         }
 
 
@@ -90,14 +95,67 @@ class MenuLoginFragment1 : Fragment() {
 
     private fun comprobarPassword(): Boolean {
 
-        val nombre = binding.ETNombre.text.toString().trim()
-        val password = binding.ETContraseA.text.toString().trim()
 
-        if (nombre.isEmpty() || password.isEmpty()) {
+        val datos = (activity as MainActivity).loginusuario
+        Log.d("shared preferences", datos.toString())
+        val nombreGuardado = datos.getString("Nombre", "No registrado")
+        val passwordGuardada = datos.getString("password", "Sin contraseña")
+
+        val usuario = Usuario(
+            nombre = binding.ETNombre.text.toString(),
+            password = binding.ETContraseA.text.toString(),
+            correo = ""
+        )
+
+        val usuarioLocal: Usuario? = nombreGuardado?.let {
+            if (passwordGuardada != null) {
+                Usuario(
+                    nombre = it,
+                    password = passwordGuardada,
+                    correo = ""
+                )
+            } else null
+        }
+
+        if (usuario.nombre.trim().lowercase() == usuarioLocal?.nombre?.trim()?.lowercase() &&
+            usuario.password.trim().lowercase() == usuarioLocal?.password?.trim()?.lowercase()
+
+
+        ) {
+            // Usuario y contraseña coinciden, permitir el login
+            Toast.makeText(
+                requireContext(),
+                "Log In correcto",
+                Toast.LENGTH_SHORT
+            ).show()
+            return true
+        } else {
+            // Datos incorrectos
+            Toast.makeText(
+                requireContext(),
+                "Log In Incorrecto",
+                Toast.LENGTH_SHORT
+            ).show()
+            binding.ETContraseA.setText("")
             return false
         }
 
-        return true
+        /* (activity as MainActivity).miViewModel.usuario =
+             Usuario(
+                 nombre = binding.ETNombre.text.toString(),
+                 password = binding.ETContraseA.text.toString(),
+                 correo = ""
+             )
+
+         val nombre = binding.ETNombre.text.toString().trim()
+         val password = binding.ETContraseA.text.toString().trim()
+
+         if (nombre.isEmpty() || password.isEmpty()) {
+             return false
+         }
+
+         return true*/
+
     }
 
 

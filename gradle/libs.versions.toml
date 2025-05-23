@@ -1,5 +1,6 @@
 [versions]
 agp = "8.8.0"
+cardview = "1.0.0"
 kotlin = "1.9.24"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -12,7 +13,11 @@ constraintlayout = "2.2.1"
 androidx_recyclerview = "1.4.0"
 room = "2.6.0"
 
+eazegraph = "1.2.2"
+nineoldandroids = "2.4.0"
+
 [libraries]
+androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
@@ -25,6 +30,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+eazegraph = { module = "com.github.blackfizz:eazegraph", version.ref = "eazegraph" }
+nineoldandroids = { module = "com.nineoldandroids:library", version.ref = "nineoldandroids" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

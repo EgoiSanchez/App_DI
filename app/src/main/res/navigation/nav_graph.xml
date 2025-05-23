@@ -101,10 +101,10 @@
         <action
             android:id="@+id/action_menuEstadisticasFragment5_to_estadisticasFragment8"
             app:destination="@id/estadisticasFragment8" />
-
         <action
             android:id="@+id/action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9"
             app:destination="@id/estadisticasGraficosFragment9" />
+
     </fragment>
 
     <!-- Sub-secciones de estadísticas -->

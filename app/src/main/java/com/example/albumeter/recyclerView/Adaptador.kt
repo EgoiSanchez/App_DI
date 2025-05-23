@@ -1,5 +1,6 @@
 package com.example.albumeter.recyclerView
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -46,9 +47,24 @@ class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
         holder.binding.EditTextNombreBanda.setText(discos[position].banda)
         holder.binding.EditTextAno.setText(discos[position].ano.toString() ?: "Año desconocido")
         holder.binding.EditTextEstilo.setText(discos[position].estilo)
+
         holder.binding.EditTextNota.setText(discos[position].nota.toString() ?: "¿?")
 
-        //holder.posicion = discos[position].id
+        // cambio el colo de la nota segun numero, referencia: https://es.stackoverflow.com/questions/511340/como-cambiar-el-color-del-texto-y-del-bot%c3%b3n-al-hacer-click
+        val nota = discos[position].nota ?: 0.0
+        val color = when {
+            nota < 5 -> Color.parseColor("#D20103")
+            nota in 5.0..5.99 -> Color.parseColor("#F1FE04")
+            nota in 6.0..6.99 -> Color.parseColor("#CA910C")
+            nota in 7.0..7.99 -> Color.parseColor("#BDCA0C")
+            nota in 8.0..8.99 -> Color.parseColor("#85C32F")
+            nota in 9.0..10.0 -> Color.parseColor("#0BCC18")
+            else -> Color.BLACK
+        }
+
+        holder.binding.EditTextNota.setTextColor(color)
+
+
     }
 
 }

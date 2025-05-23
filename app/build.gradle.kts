@@ -59,4 +59,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
 
+    //dependecncias para los graficos de quesos
+    implementation(libs.androidx.cardview)
+    implementation(libs.eazegraph)
+    implementation(libs.nineoldandroids)
+
 }

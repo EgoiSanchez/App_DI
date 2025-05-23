@@ -40,16 +40,16 @@ class MenuPrincipalFragment3 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.botonListas.setOnClickListener{
-            findNavController().navigate(R.id.action_menuPrincipalFragment3_to_misDiscosContenedor4
-            )
-        }
+
 
         binding.botonAgregarDisco.setOnClickListener{
             findNavController().navigate(R.id.action_menuPrincipalFragment3_to_agregarDiscoFragment6)
         }
         binding.botonAtrasMenuPrincipal3.setOnClickListener{
             findNavController().popBackStack()
+        }
+        binding.botonEstadisticas.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment3_to_menuEstadisticasFragment5)
         }
 
 

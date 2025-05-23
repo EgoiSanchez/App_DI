@@ -28,21 +28,33 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/LinearBotonAtras">
+
         <Spinner
             android:id="@+id/spinnerOrdenNotas"
-            android:entries="@array/orden_notas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:background="@color/GrisRecyclerView"
-            android:backgroundTint="@color/MoradoSecundario"/>
-
-
+            android:backgroundTint="@color/MoradoSecundario"
+            android:entries="@array/orden_notas"
+            android:padding="8dp" />
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/botonGraficos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/AmarilloBoton"
+        android:text="@string/graficos"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentMenuEstadisticas5Binding
 
 
@@ -38,6 +39,13 @@ class MenuEstadisticasFragment5 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.botonEstadisticas.setOnClickListener{
+            findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estadisticasFragment8)
+        }
+
+        binding.botonGraficos.setOnClickListener{
+            findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9)
+        }
 
 
 

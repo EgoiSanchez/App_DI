@@ -31,7 +31,7 @@
         >
 
         <Button
-            android:id="@+id/botonListas"
+            android:id="@+id/botonGraficos"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -57,7 +57,7 @@
             app:layout_constraintBottom_toTopOf="@id/botonAgregarDisco"
             app:layout_constraintEnd_toEndOf="@id/constraintBotones"
             app:layout_constraintStart_toStartOf="@+id/constraintBotones"
-            app:layout_constraintTop_toBottomOf="@+id/botonListas" />
+            app:layout_constraintTop_toBottomOf="@+id/botonGraficos" />
 
         <Button
             android:id="@+id/botonAgregarDisco"

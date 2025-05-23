@@ -53,25 +53,20 @@ class AgregarDiscoFragment6 : Fragment() {
             ArrayAdapter(requireContext(), R.layout.simple_dropdown_item_1line, estados)
         binding.AutocompleteEstado.setAdapter(adapter)
 
-        val idAlbum = arguments?.getInt("id") ?: -1
         //tengo el album disponible para modificarlo
+        val idAlbum = arguments?.getInt("id") ?: -1
         (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
             val album = albumes?.find { it.id == idAlbum }
-
 
             // Mostrar el menú desplegable al hacer click en el campo
             binding.AutocompleteEstado.setOnClickListener {
                 binding.AutocompleteEstado.showDropDown()
-
             }
 
             //para que al traer el disco desde detalles y  rellene los campos
             var posicion = 0
-            // si no traigo argumentos(id) le asigno el -1
-
 
             if (idAlbum <= 0) {
-                Log.d("Depuración", "Navegaste desde el menú principal. Formulario vacío.")
                 binding.botonBorrarDisco.visibility = View.INVISIBLE
                 binding.botonModificarDisco.visibility = View.INVISIBLE
 
@@ -97,8 +92,6 @@ class AgregarDiscoFragment6 : Fragment() {
                     findNavController().popBackStack()
                 }
             }
-
-
         }
         //Insertar disco
         binding.botonInsertarDisco.setOnClickListener {
@@ -127,9 +120,13 @@ class AgregarDiscoFragment6 : Fragment() {
             findNavController().popBackStack()
         }
 
+
+
         binding.botonAtrasAgregarDisco.setOnClickListener {
             findNavController().popBackStack()
         }
+
+
 
         binding.botonBorrarDisco.setOnClickListener {
             val id = idAlbum
@@ -142,7 +139,6 @@ class AgregarDiscoFragment6 : Fragment() {
                     Toast.makeText(context, "Disco borrado", Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("Nooo!!") { dialog, which ->
-                    // Se pulsa "No": simplemente dismiss el diálogo
                     dialog.dismiss()
                 }
                 .create()
@@ -162,7 +158,6 @@ class AgregarDiscoFragment6 : Fragment() {
                         Toast.makeText(context, "Disco modificado", Toast.LENGTH_SHORT).show()
                     }
                     .setNegativeButton("Noooo!!") { dialog, which ->
-                        // Se pulsa "No": simplemente dismiss el diálogo
                         dialog.dismiss()
                     }
                     .create()
