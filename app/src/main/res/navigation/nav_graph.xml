@@ -110,6 +110,9 @@
         <action
             android:id="@+id/action_menuEstadisticasFragment5_to_menuPrincipalFragment3"
             app:destination="@id/menuPrincipalFragment3" />
+        <action
+            android:id="@+id/action_menuEstadisticasFragment5_to_estanteriasFragment10"
+            app:destination="@id/estanteriasFragment10" />
 
     </fragment>
 
@@ -131,6 +134,15 @@
         tools:layout="@layout/fragment_estadisticas_graficos9" >
         <action
             android:id="@+id/action_estadisticasGraficosFragment9_to_menuEstadisticasFragment5"
+            app:destination="@id/menuEstadisticasFragment5" />
+    </fragment>
+    <fragment
+        android:id="@+id/estanteriasFragment10"
+        android:name="com.example.albumeter.EstanteriasFragment10"
+        android:label="fragment_estanterias10"
+        tools:layout="@layout/fragment_estanterias10" >
+        <action
+            android:id="@+id/action_estanteriasFragment10_to_menuEstadisticasFragment5"
             app:destination="@id/menuEstadisticasFragment5" />
     </fragment>
 

@@ -3,7 +3,6 @@ package com.example.albumeter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -43,7 +42,7 @@ class EstadisticasFragment8 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val opcionesOrden = listOf("Mayor a menor", "Menor a mayor")
-        val spinnerOrden = view.findViewById<Spinner>(R.id.spinnerOrdenNotas)
+        val spinnerOrden = view.findViewById<Spinner>(R.id.spinnerEstadoDiscos)
 
 
         // Spiner para seleccionar orden referencia Copilot y https://stackoverflow.com/questions/38762010/how-to-use-spinner-in-recyclerview

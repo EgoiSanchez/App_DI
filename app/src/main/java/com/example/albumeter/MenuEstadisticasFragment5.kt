@@ -46,6 +46,9 @@ class MenuEstadisticasFragment5 : Fragment() {
         binding.botonGraficos.setOnClickListener{
             findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9)
         }
+        binding.botonEstanterias.setOnClickListener{
+            findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estanteriasFragment10)
+        }
 
         binding.botonAtrasMenuEstadisticas5.setOnClickListener{
             findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_menuPrincipalFragment3)
