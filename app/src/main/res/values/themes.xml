@@ -1,9 +1,26 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Albumeter" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+    <!-- Tema base -->
+    <style name="Theme.Albumeter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/MoradoPrincipal</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/GrisRecyclerView</item>
+        <item name="colorOnPrimaryContainer">@color/MoradoSecundario</item>
+        <item name="android:statusBarColor">@color/MoradoSecundario</item>
+        <item name="android:navigationBarColor">@color/MoradoSecundario</item>
+        <item name="toolbarStyle">@style/Widget.Albumeter.Toolbar</item>
+        <item name="windowActionBar">false</item>
     </style>
 
-    <style name="Theme.Albumeter" parent="Base.Theme.Albumeter" />
+    <!-- Estilo personalizado para la Toolbar -->
+    <style name="Widget.Albumeter.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:elevation">4dp</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="android:background">@color/MoradoSecundario</item>
+    </style>
+
+    <style name="Theme.Albumeter.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar">
+        <item name="android:background">@color/MoradoSecundario</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
 </resources>
