@@ -47,6 +47,10 @@ class MenuEstadisticasFragment5 : Fragment() {
             findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9)
         }
 
+        binding.botonAtrasMenuEstadisticas5.setOnClickListener{
+            findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_menuPrincipalFragment3)
+        }
+
 
 
     }

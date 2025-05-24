@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_menuPrincipalFragment3_to_agregarDiscoFragment6"
             app:destination="@id/agregarDiscoFragment6" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment3_to_misDiscosContenedor42"
+            app:destination="@id/misDiscosContenedor4" />
     </fragment>
 
     <!-- Sección de discos -->
@@ -104,6 +107,9 @@
         <action
             android:id="@+id/action_menuEstadisticasFragment5_to_estadisticasGraficosFragment9"
             app:destination="@id/estadisticasGraficosFragment9" />
+        <action
+            android:id="@+id/action_menuEstadisticasFragment5_to_menuPrincipalFragment3"
+            app:destination="@id/menuPrincipalFragment3" />
 
     </fragment>
 
@@ -112,12 +118,20 @@
         android:id="@+id/estadisticasFragment8"
         android:name="com.example.albumeter.EstadisticasFragment8"
         android:label="fragment_estadisticas8"
-        tools:layout="@layout/fragment_estadisticas8" />
+        tools:layout="@layout/fragment_estadisticas8" >
+        <action
+            android:id="@+id/action_estadisticasFragment8_to_menuEstadisticasFragment5"
+            app:destination="@id/menuEstadisticasFragment5" />
+    </fragment>
 
     <fragment
         android:id="@+id/estadisticasGraficosFragment9"
         android:name="com.example.albumeter.EstadisticasGraficosFragment9"
         android:label="fragment_estadisticas_graficos9"
-        tools:layout="@layout/fragment_estadisticas_graficos9" />
+        tools:layout="@layout/fragment_estadisticas_graficos9" >
+        <action
+            android:id="@+id/action_estadisticasGraficosFragment9_to_menuEstadisticasFragment5"
+            app:destination="@id/menuEstadisticasFragment5" />
+    </fragment>
 
 </navigation>

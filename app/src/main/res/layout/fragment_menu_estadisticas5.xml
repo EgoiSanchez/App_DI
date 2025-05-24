@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/AmarilloBoton"
-            android:text="@string/estadisticas"
+            android:text="@string/top10"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/botonAgregarDisco"

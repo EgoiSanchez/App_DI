@@ -28,7 +28,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayoutSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/LinearBotonAtras">
@@ -45,16 +45,16 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/botonGraficos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/AmarilloBoton"
-        android:text="@string/graficos"
-        android:textColor="@color/black"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/newMisDiscosTop10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutSpinner"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

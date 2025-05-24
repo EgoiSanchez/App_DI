@@ -97,26 +97,26 @@ class EstadisticasGraficosFragment9 : Fragment() {
         //refenrecia https://stackoverflow.com/questions/61935606/mpandroidchart-how-to-set-custom-colors-in-piechart
         (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
             val estilosSuma = albumes.groupingBy { it.estilo }.eachCount()
-            val colores = listOf(
-                R.color.R, R.color.Java, R.color.Python,
-                R.color.colorPrimary, R.color.color_one,
-                R.color.colorAccent, R.color.color_white,
-                R.color.CPP, R.color.colorPrimaryDark,
-                R.color.color_two
-            )
+            val total = estilosSuma.values.sum() // Calcular total de álbumes
 
             var index = 0 // Para asignar colores en orden
             val mapaEstiloColor = mutableMapOf<String, Int>()
+
             estilosSuma.forEach { (estilo, cantidad) ->
                 if (index >= colores.size) index = 0 // Reiniciar si supera el tamaño de la lista
 
                 val colorRes = colores[index]
                 val colorFinal = ContextCompat.getColor(requireContext(), colorRes)
 
-                pieChart.addPieSlice(
-                    PieModel(estilo ?: "Desconocido", cantidad.toFloat(), colorFinal)
-                )
+                // Calcular el porcentaje adecuado
+                val porcentaje = (cantidad.toFloat() / total) * 100
+
+                // Agregar la porción al gráfico
+                pieChart.addPieSlice(PieModel(estilo ?: "Desconocido", porcentaje, colorFinal))
                 mapaEstiloColor[estilo ?: "Desconocido"] = colorFinal
+
+
+
                 index++ // Pasar al siguiente color de la lista
             }
 
@@ -126,14 +126,14 @@ class EstadisticasGraficosFragment9 : Fragment() {
             val leyendagrafico = view.findViewById<LinearLayout>(R.id.leyendaColores)
             mapaEstiloColor.forEach { (estilo, color) ->
                 val indicadorColor = View(requireContext()).apply {
-                    layoutParams = LinearLayout.LayoutParams(40, 40)
+                    layoutParams = LinearLayout.LayoutParams(60, 60)
                     setBackgroundColor(color)
                 }
 
                 val textoLeyenda = TextView(requireContext()).apply {
                     text = estilo
                     setTextColor(Color.BLACK)
-                    textSize = 16f
+                    textSize = 24f
                     setPadding(8, 8, 8, 8)
                 }
 
@@ -146,6 +146,10 @@ class EstadisticasGraficosFragment9 : Fragment() {
 
                 leyendagrafico.addView(contenedorLeyenda)
             }
+        }
+
+        binding.botonAtrasEstadisticasGraficos.setOnClickListener{
+            findNavController().navigate(R.id.action_estadisticasGraficosFragment9_to_menuEstadisticasFragment5)
         }
 
     }

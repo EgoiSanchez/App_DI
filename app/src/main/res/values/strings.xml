@@ -30,6 +30,7 @@
     <string name="insertar_disco">Insertar disco</string>
     <string name="modificar_disco">Modificar Disco</string>
     <string name="borrar_disco">Borrar disco</string>
+    <string name="top10">TOP10</string>
     <string-array name="orden_notas">
         <item>Ordenar de mayor a menor</item>
         <item>Ordenar de menor a mayor</item>

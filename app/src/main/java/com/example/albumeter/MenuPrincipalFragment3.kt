@@ -52,6 +52,10 @@ class MenuPrincipalFragment3 : Fragment() {
             findNavController().navigate(R.id.action_menuPrincipalFragment3_to_menuEstadisticasFragment5)
         }
 
+        binding.botonMisDiscos.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment3_to_misDiscosContenedor4)
+        }
+
 
 
 
