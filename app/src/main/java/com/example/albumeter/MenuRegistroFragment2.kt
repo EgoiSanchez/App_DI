@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.Modelo.Usuario
 import com.example.albumeter.databinding.FragmentMenuRegistro2Binding
@@ -44,7 +45,7 @@ class MenuRegistroFragment2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        (activity as AppCompatActivity).supportActionBar?.title = "Registro"
         val mainActivity = activity as? MainActivity
         if (mainActivity != null) {
 

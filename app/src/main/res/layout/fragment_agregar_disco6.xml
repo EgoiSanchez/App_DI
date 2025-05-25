@@ -113,7 +113,7 @@
         <EditText
             android:id="@+id/EditTextDescripcion"
             android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edit_text_recyclerview_datos"
             android:gravity="center"
             android:hint="@string/descripcion"
@@ -126,7 +126,7 @@
         <EditText
             android:id="@+id/EditTextTags"
             android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edit_text_recyclerview_datos"
             android:gravity="center"
             android:hint="@string/tags"

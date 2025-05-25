@@ -65,6 +65,7 @@ class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
         holder.binding.EditTextNota.setTextColor(color)
 
 
+
     }
 
 }

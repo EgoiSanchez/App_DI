@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.albumeter.databinding.FragmentEstadisticas8Binding
@@ -40,6 +41,7 @@ class EstadisticasFragment8 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = "TOP 10"
 
         val opcionesOrden = listOf("Mayor a menor", "Menor a mayor")
         val spinnerOrden = view.findViewById<Spinner>(R.id.spinnerEstadoDiscos)

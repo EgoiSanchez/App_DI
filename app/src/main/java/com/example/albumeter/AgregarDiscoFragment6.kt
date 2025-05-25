@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.BBDD.Album
 import com.example.albumeter.BBDD.Estado
@@ -45,6 +46,7 @@ class AgregarDiscoFragment6 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = ""
 
         //Para hacer el menu desplegable de estado
         // Convierte el enum a una lista de strings

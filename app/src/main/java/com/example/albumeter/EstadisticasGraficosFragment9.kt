@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentEstadisticasGraficos9Binding
@@ -47,6 +48,7 @@ class EstadisticasGraficosFragment9 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = "Graficos"
 
 
         val mapaEstiloColor = mutableMapOf<String, Int>()

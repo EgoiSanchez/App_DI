@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setPadding
 import androidx.navigation.fragment.findNavController
 import com.example.albumeter.databinding.FragmentMenuPrincipal3Binding
@@ -38,7 +39,7 @@ class MenuPrincipalFragment3 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        (activity as AppCompatActivity).supportActionBar?.title = "Menu Principal"
 
 
 
