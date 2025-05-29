@@ -19,11 +19,6 @@ class VM(val miRepositorio: Repositorio) : ViewModel() {
     lateinit var album: LiveData<Album>
 
     //meto todas las funciones de las base de datos qur quiera usar
-    // fun mostrarAlbum() = viewModelScope.launch {
-    // miRepositorio.mostrarAlbumes().collect { lista ->
-    //   listaAlbumes = lista.asLiveData()
-    // }
-    //}
 
     fun buscarAlbumPorId(id: Int): LiveData<Album> {
         return miRepositorio.buscarPorId(id).asLiveData()

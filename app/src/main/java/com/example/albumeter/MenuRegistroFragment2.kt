@@ -55,6 +55,7 @@ class MenuRegistroFragment2 : Fragment() {
                 if (binding.ETContraseA.text.toString() == binding.ETContraseARepetida.text.toString()) {
 
                     loginUsuario = mainActivity.loginusuario
+                    //para poder hacer cambios en las shared preferences
                     val editor: Editor = loginUsuario.edit()
 
                     (activity as MainActivity).miViewModel.usuario =
@@ -65,7 +66,7 @@ class MenuRegistroFragment2 : Fragment() {
                         )
 
 
-                    //compruebo si usuario esta ya guardado (sintexis sugerida por android Studio)
+                    //compruebo si usuario esta ya guardado (sintaxis sugerida por android Studio)
                     if ((activity as MainActivity).miViewModel.usuario?.let { it1 ->
                             comprobarDatos(
                                 it1
@@ -98,6 +99,7 @@ class MenuRegistroFragment2 : Fragment() {
         }
     }
 
+    //comprobar si el nmbre ya es el mismo que ya tengo en las shared preferences
     fun comprobarDatos(usuario: Usuario): Boolean {
         val sharedPreferences = (activity as MainActivity).loginusuario
         val nombreGuardado = sharedPreferences.getString("Nombre", null)
@@ -105,13 +107,16 @@ class MenuRegistroFragment2 : Fragment() {
         return if (nombreGuardado != null) {
             if (nombreGuardado.lowercase() == usuario.nombre.lowercase()) {
                 Toast.makeText(requireContext(), "Nombre ya en uso", Toast.LENGTH_SHORT).show()
-                false
+                return false
             } else {
-                true
+                //no es null y no esta en uso devuevel true y sigo con el registro
+                return true
             }
-        } else {
+
+
+        } else { // salgo del if anterior y devuelvo el true general
             Toast.makeText(requireContext(), "Registro correcto", Toast.LENGTH_SHORT).show()
-            true
+            return true
         }
     }
 

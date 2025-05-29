@@ -50,8 +50,7 @@ class EstadisticasGraficosFragment9 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Graficos"
 
-
-        val mapaEstiloColor = mutableMapOf<String, Int>()
+        //referencia al queso en el xml
         val pieChart = view.findViewById<PieChart>(R.id.pieChart)
 
         //spinner, referencia: https://www.geeksforgeeks.org/spinner-in-android-with-example/
@@ -104,6 +103,7 @@ class EstadisticasGraficosFragment9 : Fragment() {
             var index = 0 // Para asignar colores en orden
             val mapaEstiloColor = mutableMapOf<String, Int>()
 
+            //un for each
             estilosSuma.forEach { (estilo, cantidad) ->
                 if (index >= colores.size) index = 0 // Reiniciar si supera el tamaño de la lista
 

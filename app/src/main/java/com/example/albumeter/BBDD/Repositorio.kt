@@ -5,6 +5,7 @@ import androidx.annotation.WorkerThread
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
+//recibo instancia de AlbumDAO para usarlo de conexion con la BBDD
 class Repositorio(val miDAO: AlbumDAO) {
     fun mostrarAlbumes(): Flow<List<Album>> {
         return miDAO.mostrarAlbumes()
@@ -23,15 +24,29 @@ class Repositorio(val miDAO: AlbumDAO) {
     }
 
     suspend fun borrarAlbum(id: Int) {
-        miDAO.borrar(id)
+        try {
+            miDAO.borrar(id)
+            Log.d("Depuración", "Se ha borrado el disco correctamente.")
+        } catch (e: Exception) {
+            Log.e("Error BD", "Error borrando el disco: ${e.message}")
+        }
+
     }
 
     suspend fun modificarAlbum(miDisco: Album) {
-        miDAO.modificar(miDisco)
+
+        try {
+            miDAO.modificar(miDisco)
+            Log.d("Depuración", "Se ha modificado el disco correctamente.")
+        } catch (e: Exception) {
+            Log.e("Error BD", "Error modificando el disco: ${e.message}")
+        }
+
     }
 
     //@WorkerThread
     fun buscarPorId(id: Int): Flow<Album> {
+
         return miDAO.buscarPorId(id)
     }
 

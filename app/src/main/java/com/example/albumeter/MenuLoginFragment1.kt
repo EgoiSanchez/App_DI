@@ -48,6 +48,7 @@ class MenuLoginFragment1 : Fragment() {
 
         //titulo del fragmento
         (activity as AppCompatActivity).supportActionBar?.title = "Albumeter"
+
         //traerme login del usuario
         val mainActivity = activity as? MainActivity
         if (mainActivity != null) {
@@ -60,6 +61,7 @@ class MenuLoginFragment1 : Fragment() {
         var usuario = (activity as MainActivity).miViewModel.usuario
         usuario = Usuario("", "", "")
 
+        //boton Log IN
         binding.botonLogIn.setOnClickListener {
             if (comprobarPassword()) {
                 findNavController().navigate(R.id.action_menuLoginFragment1_to_menuPrincipalFragment3)
@@ -79,6 +81,7 @@ class MenuLoginFragment1 : Fragment() {
             }
         }
 
+        //boton Registro
         binding.botonRegistro.setOnClickListener {
             findNavController().navigate(R.id.action_menuLoginFragment1_to_menuRegistroFragment2)
         }
@@ -93,6 +96,7 @@ class MenuLoginFragment1 : Fragment() {
     }
 
 
+    //compruebo password
     private fun comprobarPassword(): Boolean {
 
 
@@ -119,10 +123,8 @@ class MenuLoginFragment1 : Fragment() {
 
         if (usuario.nombre.trim().lowercase() == usuarioLocal?.nombre?.trim()?.lowercase() &&
             usuario.password.trim().lowercase() == usuarioLocal?.password?.trim()?.lowercase()
-
-
         ) {
-            // Usuario y contraseña coinciden, permitir el login
+            // Usuario y contraseña coinciden retorno el true
             Toast.makeText(
                 requireContext(),
                 "Log In correcto",
@@ -130,7 +132,8 @@ class MenuLoginFragment1 : Fragment() {
             ).show()
             return true
         } else {
-            // Datos incorrectos
+
+            // Datos incorrectos, vacio el campo de contraseña
             Toast.makeText(
                 requireContext(),
                 "Log In Incorrecto",
@@ -140,21 +143,6 @@ class MenuLoginFragment1 : Fragment() {
             return false
         }
 
-        /* (activity as MainActivity).miViewModel.usuario =
-             Usuario(
-                 nombre = binding.ETNombre.text.toString(),
-                 password = binding.ETContraseA.text.toString(),
-                 correo = ""
-             )
-
-         val nombre = binding.ETNombre.text.toString().trim()
-         val password = binding.ETContraseA.text.toString().trim()
-
-         if (nombre.isEmpty() || password.isEmpty()) {
-             return false
-         }
-
-         return true*/
 
     }
 

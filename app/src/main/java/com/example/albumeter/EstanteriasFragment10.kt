@@ -57,15 +57,18 @@ class EstanteriasFragment10 : Fragment() {
 
         val spinnerOrden = view.findViewById<Spinner>(R.id.spinnerEstadoDiscos)
 
-        // Adaptador correcto con lista de Strings
+        // Adaptador correcto con lista de Strings (opciones estado)
         val adapterSpinner = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, opcionesEstado)
         adapterSpinner.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
         spinnerOrden.adapter = adapterSpinner
+
+
 
         spinnerOrden.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val opcionSeleccionado = estadoMap[opcionesEstado[position]] // Convierte la selección en un Estado válido
 
+                //obseever lista albumes
                 (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
                     val albumesFiltrados = albumes.filter { it.estado == opcionSeleccionado }
 

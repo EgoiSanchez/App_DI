@@ -13,8 +13,11 @@ import kotlinx.coroutines.launch
 import java.sql.Date
 
 @Database(entities = arrayOf(Album::class), version = 1, exportSchema = false)
+//converteres para la fecha
 @TypeConverters(Converters::class)
 abstract class BBDD : RoomDatabase() {
+
+    //la funcion que usare fuera
     abstract fun miDAO(): AlbumDAO
 
     companion object {

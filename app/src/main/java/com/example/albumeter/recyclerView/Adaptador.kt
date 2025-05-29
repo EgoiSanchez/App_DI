@@ -12,20 +12,21 @@ import com.example.albumeter.R
 import com.example.albumeter.databinding.RecyclerViewDiscoBinding
 import com.example.albumeter.recyclerView.Adaptador.*
 
+//recibo la lista de albumes
 class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
 
+    //esto es cada disco
     inner class DiscoVH(val binding: RecyclerViewDiscoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        var posicion = 0
 
-        //cuando implemente el boton detalles del recycler view
+        //obtengo el id del album en mibundle
         init {
             binding.botonDetallesRecyclerView.setOnClickListener {
                 val albumId = discos[adapterPosition].id
                 val mibundle = bundleOf("id" to albumId)
                 binding.rviClPrincipal.findNavController()
-                    .navigate(R.id.action_misDiscosContenedor4_to_agregarDiscoFragment6, mibundle)
+                    .navigate(R.id.action_misDiscosContenedor4_to_agregarDiscoFragment6, mibundle) // voy al fragment de agregardisco eon el album mibundle
             }
 
         }
@@ -42,6 +43,7 @@ class Adaptador(var discos: List<Album>) : RecyclerView.Adapter<DiscoVH>() {
         return discos.count()
     }
 
+    //se rellenan los campos con el disco actual
     override fun onBindViewHolder(holder: DiscoVH, position: Int) {
         holder.binding.EditTextTituloDisco.setText(discos[position].titulo)
         holder.binding.EditTextNombreBanda.setText(discos[position].banda)

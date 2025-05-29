@@ -7,15 +7,18 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
+// para la gestion de base de datos, las querys
 @Dao
 interface AlbumDAO {
 
+    // con flow para hacerla reactiva a cambios y se actualize automaticamente
     @Query("SELECT * FROM Albumes")
     fun mostrarAlbumes(): Flow<List<Album>>
 
     @Insert
     suspend fun insertarAlbum(miAlbum: Album)
 
+    // para tratar el disco de cada recycler view y no la posicion de los recycler
     @Query("SELECT * FROM Albumes where id like :id")
     fun buscarPorId(id:Int): Flow<Album>
 
@@ -23,6 +26,7 @@ interface AlbumDAO {
     @Query ("DELETE FROM Albumes WHERE id = :id")
     suspend fun borrar(id: Int)
 
+    //suspned para hacer con una courutine
     @Update
     suspend fun modificar(disco: Album)
 

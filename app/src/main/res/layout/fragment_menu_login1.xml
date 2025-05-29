@@ -43,6 +43,7 @@
             android:hint="@string/contrasena"
             android:textAlignment="center"
             android:textSize="24sp"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="@id/constraintEditText"
             app:layout_constraintEnd_toEndOf="@id/constraintEditText"
             app:layout_constraintStart_toStartOf="@id/constraintEditText"

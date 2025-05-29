@@ -55,7 +55,7 @@ class AgregarDiscoFragment6 : Fragment() {
             ArrayAdapter(requireContext(), R.layout.simple_dropdown_item_1line, estados)
         binding.AutocompleteEstado.setAdapter(adapter)
 
-        //tengo el album disponible para modificarlo
+        //tengo el album disponible para MODIFICAR, cojo el id de los argmentos del fragment (vengo del recycler view), y observo el livedata dlistaalbumes y busco con el id
         val idAlbum = arguments?.getInt("id") ?: -1
         (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
             val album = albumes?.find { it.id == idAlbum }
@@ -65,17 +65,17 @@ class AgregarDiscoFragment6 : Fragment() {
                 binding.AutocompleteEstado.showDropDown()
             }
 
-            //para que al traer el disco desde detalles y  rellene los campos
-            var posicion = 0
 
+            //le pongo un if <0 xk si es mayor seria un disco ya en la base de datos, al ser -1 es un disco que no existe y por lo tanto para infresar
             if (idAlbum <= 0) {
                 binding.botonBorrarDisco.visibility = View.INVISIBLE
                 binding.botonModificarDisco.visibility = View.INVISIBLE
 
             } else {
+
                 // Busca por ID correcto
                 if (album != null) {
-                    // Rellena los campos con album.titulo, album.banda, etc.
+
                     binding.EditTextTituloDisco.setText(album.titulo)
                     binding.EditTextNombreBanda.setText(album.banda)
                     album.ano?.let { binding.EditTextAno.setText(it.toString()) }
@@ -84,6 +84,7 @@ class AgregarDiscoFragment6 : Fragment() {
                     binding.EditTextDescripcion.setText(album.descripcion)
                     binding.EditTextPortada.setText(album.portada)
                     album.nota?.let { binding.EditTextNota.setText(it.toString()) }
+
                     //convertir la lista de tags en una cadena separadas por comas
                     binding.EditTextTags.setText(album.tags.joinToString(", "))
                     binding.AutocompleteEstado.setText(album.estado.name)
@@ -95,6 +96,7 @@ class AgregarDiscoFragment6 : Fragment() {
                 }
             }
         }
+
         //Insertar disco
         binding.botonInsertarDisco.setOnClickListener {
             //recojer el resultado del menu desplegable
@@ -107,16 +109,19 @@ class AgregarDiscoFragment6 : Fragment() {
             val nuevoDisco = Album(
                 titulo = binding.EditTextTituloDisco.text.toString(),
                 banda = binding.EditTextNombreBanda.text.toString(),
+                // si no es un Int se le asigna 0
                 ano = binding.EditTextAno.text.toString().toIntOrNull() ?: 0,
                 estilo = binding.EditTextEstilo.text.toString(),
                 pais = binding.EditTextPais.text.toString(),
                 estado = estadoSeleccionado,
                 descripcion = binding.EditTextDescripcion.text.toString(),
                 tags = listOf(binding.EditTextTags.text.toString()),
+                // si no es formato double 0.0 se le asigna 0.0
                 nota = binding.EditTextNota.text.toString().toDoubleOrNull() ?: 0.0,
                 portada = binding.EditTextPortada.text.toString()
             )
 
+            //llamo funciona agregar disco
             (activity as MainActivity).miViewModel.agregarDisco(nuevoDisco)
             Toast.makeText(context, "Disco añadido", Toast.LENGTH_SHORT).show()
             findNavController().popBackStack()
@@ -133,6 +138,7 @@ class AgregarDiscoFragment6 : Fragment() {
         binding.botonBorrarDisco.setOnClickListener {
             val id = idAlbum
 
+            //pop up de confirmacion de borrar disco
             AlertDialog.Builder(requireContext())
                 .setTitle("Confirmacion Borrado Disco")
                 .setMessage("¿Estas seguro que quieres borrar el disco?")
@@ -152,6 +158,8 @@ class AgregarDiscoFragment6 : Fragment() {
             val albumActualizado = crearAlbumDesdeCampos(idAlbum)
 
             if (albumActualizado != null) {
+
+                //pop up de de confirmacion de modificar disco
                 AlertDialog.Builder(requireContext())
                     .setTitle("Confirmacion Modificar Disco")
                     .setMessage("¿Estas seguro que quieres modificar el disco?")
@@ -165,12 +173,10 @@ class AgregarDiscoFragment6 : Fragment() {
                     .create()
                     .show()
             }
-
-
         }
     }
 
-    //funcion por que si cojo el LiveData esta viejo y da NULLPOINTEREXCEPTION,
+    //funcion por que si cojo el lista albumes LiveData y esta viejo da NULLPOINTEREXCEPTION (solo para modificar)
     fun crearAlbumDesdeCampos(id: Int): Album {
         return Album(
             id = id,

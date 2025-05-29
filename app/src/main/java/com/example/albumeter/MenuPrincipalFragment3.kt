@@ -43,6 +43,7 @@ class MenuPrincipalFragment3 : Fragment() {
 
 
 
+        //botones
         binding.botonAgregarDisco.setOnClickListener{
             findNavController().navigate(R.id.action_menuPrincipalFragment3_to_agregarDiscoFragment6)
         }

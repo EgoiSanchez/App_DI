@@ -40,6 +40,7 @@ class MenuEstadisticasFragment5 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Estadisticas"
 
+        //botones
         binding.botonEstadisticas.setOnClickListener{
             findNavController().navigate(R.id.action_menuEstadisticasFragment5_to_estadisticasFragment8)
         }

@@ -45,7 +45,7 @@ class MisDiscosContenedor4 : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "Tus discos"
 
 
-        //live data oberserver de la lista de albumes
+        //live data oberserver de la lista de albumes para que si se cambia la base de datos se actualize autamticamente
         (activity as MainActivity).miViewModel.listaAlbumes.observe(viewLifecycleOwner) { albumes ->
             binding.newMisDiscosContenedor4.layoutManager = LinearLayoutManager(requireContext())
             binding.newMisDiscosContenedor4.adapter = Adaptador(albumes)

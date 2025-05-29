@@ -22,7 +22,7 @@ import com.example.albumeter.BBDD.BBDD
 import com.example.albumeter.BBDD.Repositorio
 import com.example.albumeter.Modelo.AlbumViewModelFactory
 import com.example.albumeter.Modelo.VM
-import com.example.albumeter.databinding.ActivityMainBinding // Asegúrate de tener el binding generado
+import com.example.albumeter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,33 +31,38 @@ class MainActivity : AppCompatActivity() {
     lateinit var miDataBase: BBDD
     private lateinit var miRepositorio: Repositorio
     lateinit var miViewModel: VM
-    private lateinit var binding: ActivityMainBinding // Faltaba inicializar el binding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //almaceno datos en las preferences
         loginusuario = this.getSharedPreferences("datosUsuario", Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
 
-        // Faltaba esta línea para inicializar el binding
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Faltaba usar el binding para la toolbar
-        setSupportActionBar(binding.toolbar) // Cambiado de findViewById a binding
+        setSupportActionBar(binding.toolbar)
 
+        //instancio la base de datos
         miDataBase = BBDD.getDatabase(this)
         Log.d("BBDD", "Base de datos abierta: ${miDataBase.isOpen}")
 
+        //instancio el repo y el VM
         miRepositorio = Repositorio(miDataBase.miDAO())
         miViewModel = ViewModelProvider(this, AlbumViewModelFactory(miRepositorio))[VM::class.java]
 
         enableEdgeToEdge()
 
-        // Faltaba esta configuración del NavController
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration) // Faltaba pasar appBarConfiguration
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav_host_fragment)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -66,28 +71,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Faltaba implementar correctamente la navegación hacia arriba
+    //Facilita la navegacion hacia atras del sistema
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    //para inflar el menu de arriba
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
-    // Faltaba manejar el segundo ítem del menú
+    // manajear opciones menu de arriba
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.toolBarMenuPrincipal -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.menuPrincipalFragment3)
                 true
             }
-            R.id.toolBarLogOut -> { // Faltaba este caso
+
+            R.id.toolBarLogOut -> {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.menuLoginFragment1)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
